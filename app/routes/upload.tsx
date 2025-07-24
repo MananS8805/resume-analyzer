@@ -63,6 +63,7 @@ const upload = () => {
             AIResponseFormat: "json" // or use the correct format string required by your app
         })
     ); // getting feedback from AI
+     
 
     if(!feedback){
         return setStatusText("Failed to get feedback from AI");
@@ -72,8 +73,9 @@ const upload = () => {
     await kv.set(`resume:${uuid}`,JSON.stringify(data)); // saving feedback to kv store
     setStatusText("Done! Redirecting you to your resume...");
     console.log(data);
-    
-}
+    console.log(uuid)
+    navigate(`/resume/${uuid}`); // redirecting to resume page    
+    }   
 
     const handlesubmit = (e : FormEvent<HTMLFormElement>)=>{
         e.preventDefault();

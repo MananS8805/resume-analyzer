@@ -15,7 +15,19 @@ interface Resume {
 }
 
 interface Feedback {
+  formatting_score: number;
+  keyword_optimization: number;
+  content_relevance: number;
+  ats_compatibility_explanation: any;
+  ats_compatibility: number;
   overallScore: number;
+  ats_issues: string[];
+  content_issues: string[];
+  structure_issues: string[];
+  recommendations: string[];
+  specific_improvements: string[];
+  strengths: string[];
+  weaknesses: string[];
   ATS: {
     score: number;
     tips: {
@@ -46,6 +58,11 @@ interface Feedback {
       tip: string;
       explanation: string;
     }[];
+  };
+  job_fit_analysis: {
+    match_score: number;
+    missing_elements: string[];
+    relevant_skills: string[];
   };
   skills: {
     score: number;
